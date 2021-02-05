@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        var jeux = [];
-    for (let i = 0; i < 5; i++) {
-        jeux.push(Number(prompt('veuillez rentré 5 chiffres'))) && console.log('chiffre numero '+ jeux.length + " :" + jeux[i])
-        console.log('Vous avez rentré : ' + jeux)
-    };
-    
 
-        
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+        var jeux = [];
+        for (let i = 0; i < 5; i++) {
+            jeux.push(Number(prompt('veuillez rentré 5 chiffres'))) && console.log('chiffre numero ' + jeux.length + " :" + jeux[i])
+            console.log('Votre tableau est composé de : ' + jeux);
+            console.log('La somme est de :' + jeux.reduce(reducer));
+        };
+        console.log('Pour une moyenne de : ' + jeux.reduce(reducer) / 5);
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>

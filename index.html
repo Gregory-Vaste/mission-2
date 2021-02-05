@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        class voiture{
+        class voiture {
             // parametre privé
             #immatriculation
             #couleur
@@ -14,7 +15,7 @@
             #capaciteReserve
             #niveauDessence
             // constructeur
-            constructor(immatriculation,couleur,puissance,capaciteReserve,places,niveauDessence){ 
+            constructor(immatriculation, couleur, puissance, capaciteReserve, places, niveauDessence) {
                 // this c'est ma voiture
                 this.#couleur = couleur;
                 this.#immatriculation = immatriculation;
@@ -22,72 +23,66 @@
                 this.#capaciteReserve = capaciteReserve;
                 this.#niveauDessence = niveauDessence;
                 this.#places = places;
-                    
+
             };
             // methode pour repeindre
-            repeindre(nouvelleCouleur){
-                if (nouvelleCouleur == this.#couleur){
+            repeindre(nouvelleCouleur) {
+                if (nouvelleCouleur == this.#couleur) {
                     alert('merci pour ce rafraîchissement')
                 }
                 this.#couleur = nouvelleCouleur
-               
+
             };
             // methode mettre l'essence
-            mettreEssence(total){
+            mettreEssence(total) {
                 // si ma reserve est < à mon nievau d'essence et le total ajouté affichage erreur
-                if(this.#capaciteReserve < this.#niveauDessence + total ){
+                if (this.#capaciteReserve < this.#niveauDessence + total) {
                     console.error('le reservoir est plein');
-                }else{
-                // Sinon niveau d'essence ajoute le nouveau total 
-                    this.#niveauDessence += total 
+                } else {
+                    // Sinon niveau d'essence ajoute le nouveau total 
+                    this.#niveauDessence += total
                     console.log('miam miam j\'ai faim')
                 }
             };
-            seDeplacer(distance,vitesseMoyenne){
-                var conso = this.#calculeConso(distance,vitesseMoyenne)
-                
+            // methode de affiche de la consomation
+            seDeplacer(distance, vitesseMoyenne) {
+                var conso = this.#calculeConso(distance, vitesseMoyenne)
+
                 this.#niveauDessence = this.#niveauDessence - conso
-                console.log('Vous avez consommé '+ conso + 'L , ils vous restent ' + this.#niveauDessence + 'L' )
+                console.log('Vous avez consommé ' + conso + 'L , ils vous restent ' + this.#niveauDessence + 'L')
 
             };
-            #calculeConso(distance,vitesseMoyenne){
+            // methode privé qui calcule la consomation 
+            #calculeConso(distance, vitesseMoyenne) {
                 var conso = 0;
-                if(vitesseMoyenne <= 0){
+                if (vitesseMoyenne <= 0) {
                     console.log('point mort')
                 }
-                if(vitesseMoyenne <= 50){
+                if (vitesseMoyenne <= 50) {
                     conso = distance * .1
 
-                }else if(vitesseMoyenne >= 50 && vitesseMoyenne <= 90 ){
+                } else if (vitesseMoyenne >= 50 && vitesseMoyenne <= 90) {
                     conso = distance * .05
-                }else if(vitesseMoyenne >= 90 && vitesseMoyenne <= 130){
+                } else if (vitesseMoyenne >= 90 && vitesseMoyenne <= 130) {
                     conso = distance * .08
-                }else{
+                } else {
                     conso = distance * 0.12
                 }
-                
+
                 return conso
 
             }
-        
+
         };
-            
 
 
-        
+
+
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
-<!-- constructor{
-#model = 'jaguar';
-imatriculation = 'azerty';
-poids = parseInt('2tonnes', 123);
-puissance = parseInt('150cv', 95);
-nbreDeplace = parseInt('67kg', 12);
-capaciteReserve = parseFloat('gloupgloup');
-Niveaudessence = parseFloat('elleboit');
-assurance = 0;
-messageHome ='Bienvenu kontant wè-w';  -->
